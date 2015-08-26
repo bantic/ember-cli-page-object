@@ -27,7 +27,7 @@ function visitable(params = {}, queryParams = {}) {
     path = fillInDynamicSegments(path, params);
   }
 
-  if (Ember.keys(queryParams).length > 0) {
+  if (Object.keys(queryParams).length > 0) {
     path += "?" + Ember.$.param(queryParams);
   }
 
