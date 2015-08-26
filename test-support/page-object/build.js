@@ -1,6 +1,7 @@
 /* global wait */
 
 import { isNullOrUndefined } from './helpers';
+import Loader from '../../loaders';
 
 function Component() {
 }
@@ -34,6 +35,10 @@ function buildComponentIfNeeded(candidate, key, parent) {
 }
 
 export function componentAttribute(definition) {
+  if (typeof definition === "string") {
+    return Loader.loadComponent(definition);
+  }
+
   return {
     buildPageObjectAttribute: function(key, parent) {
       let component = build(definition);
